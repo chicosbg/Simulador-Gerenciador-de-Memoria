@@ -3,4 +3,18 @@ from abstratos.memoriaAbstrata import MemoriaAbstrata
 class MemoriaFisicaModel(MemoriaAbstrata):
     def __init__(self):
         super().__init__(numero_de_byte=16)
-        self.memoria = [["e","f", "g"], ["t", "k", "l"], ["t","e","f"]]
+        self.memoria = []
+        self.fila_de_quadros = []
+        
+    def adiciona_na_memoria_fisica(self, pagina_memoria_logica):
+        if(len(self.memoria) < self.numero_paginas):
+            self.memoria.append(pagina_memoria_logica)
+            index_inserido = len(self.memoria)
+            self.fila_de_quadros.append(index_inserido)
+            return index_inserido
+        
+        mais_antigo_da_fila = self.fila_de_quadros.pop(0)
+        self.memoria[mais_antigo_da_fila] = pagina_memoria_logica
+        self.fila_de_quadros.append(mais_antigo_da_fila)
+        
+        

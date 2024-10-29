@@ -13,8 +13,14 @@ class MemoriaAbstrata(ABC):
         super().__init__()
         self.numero_paginas = numero_de_byte
         self.memoria = []
-    
+        
     def busca_pagina(self, pagina):
-        if(pagina > self.numero_paginas):
+        if(pagina > self.numero_paginas or pagina < 0):
             raise Exception("Numero de paginas invalido.")
-        return self.memoria[pagina-1]
+        possicao_memoria_sendo_acessado = pagina-1
+        try:
+            return {"pagina":self.memoria[possicao_memoria_sendo_acessado], "index":possicao_memoria_sendo_acessado, "acessado": True}
+        except IndexError:
+            return {"pagina":None, "index":possicao_memoria_sendo_acessado, "acessado":False}
+    
+            
