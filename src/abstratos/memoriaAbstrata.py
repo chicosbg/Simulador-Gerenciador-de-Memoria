@@ -9,9 +9,9 @@ cada pagina vai ter um dicionario correspondendo ao processo
 [["","",""], ["", "", ""]]
 
 class MemoriaAbstrata(ABC):
-    def __init__(self, numero_de_byte: int):
+    def __init__(self, numero_paginas: int):
         super().__init__()
-        self.numero_paginas = numero_de_byte
+        self.numero_paginas = numero_paginas
         self.memoria = []
         
     def busca_pagina(self, pagina):
@@ -22,5 +22,8 @@ class MemoriaAbstrata(ABC):
             return {"pagina":self.memoria[possicao_memoria_sendo_acessado], "index":possicao_memoria_sendo_acessado, "acessado": True}
         except IndexError:
             return {"pagina":None, "index":possicao_memoria_sendo_acessado, "acessado":False}
+        
+    def printa_memoria(self):
+        print(self.memoria)
     
             

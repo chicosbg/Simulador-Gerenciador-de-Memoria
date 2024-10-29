@@ -2,5 +2,8 @@ from abstratos.memoriaAbstrata import MemoriaAbstrata
 
 class MemoriaVirtualModel(MemoriaAbstrata):
     def __init__(self):
-        super().__init__(numero_de_byte=16)
-        self.memoria = [["t","e","f"], ["e","f", "g"], ["t", "k", "l"]]
+        super().__init__(numero_paginas=3)
+        self.memoria = []
+    
+    def adiciona_lista_de_paginas(self, lista_paginas):
+        self.memoria = lista_paginas    
