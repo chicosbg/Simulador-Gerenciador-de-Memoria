@@ -36,17 +36,20 @@ class gerenciadorMemoriaModel():
         if(foi_alocado_na_memoria_fisica):
             pagina_memoria_fisica = self.memoria_fisica.busca_pagina(pagina=posicao_pagina_fisica)
 
-        if(not pagina_memoria_fisica["acessado"]):
+        if(not pagina_memoria_fisica["acessado"] or pagina_memoria_logica["pagina"] != pagina_memoria_fisica["pagina"]):
+            if(self.numero_page_fault == 0):
+                self.tabela_de_referencia.pop(0)
             self.numero_page_fault += 1
             print(f"Ocorreu um page fault com o a posicação virtual {posicao_pagina}")
-            self._trata_page_fault(pagina_memoria_logica=pagina_memoria_logica["pagina"], posicao_da_referencia=posicao_referencia_ml_mf)
+            self._trata_page_fault(pagina_memoria_logica=pagina_memoria_logica["pagina"], posicao_memoria_logica=pagina_memoria_logica["index"]+1, posicao_da_referencia=posicao_referencia_ml_mf)
             return
         
         
-    def _trata_page_fault(self, pagina_memoria_logica, posicao_da_referencia):
+    def _trata_page_fault(self, pagina_memoria_logica, posicao_memoria_logica, posicao_da_referencia):
         posicao_inserida = self.memoria_fisica.adiciona_na_memoria_fisica(pagina_memoria_logica)
         if(posicao_da_referencia == -1):
-            self.tabela_de_referencia.append({"pagina_logica": pagina_memoria_logica, "pagina_fisica":posicao_inserida})
+            self.tabela_de_referencia.append({"pagina_logica": posicao_memoria_logica, "pagina_fisica":posicao_inserida})
+            return
         self.tabela_de_referencia[posicao_da_referencia]["pagina_fisica"] = posicao_inserida
     
     def _procura_referencia_pagina_logica(self, pagina_logica):
