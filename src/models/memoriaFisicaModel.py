@@ -1,8 +1,8 @@
 from abstratos.memoriaAbstrata import MemoriaAbstrata
 
 class MemoriaFisicaModel(MemoriaAbstrata):
-    def __init__(self, numero_paginas):
-        super().__init__(numero_paginas=numero_paginas)
+    def __init__(self, tam_memoria_bytes):
+        super().__init__(tam_memoria_bytes=tam_memoria_bytes)
         self.memoria = []
         self.fila_de_quadros = []
         
