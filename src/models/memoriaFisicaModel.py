@@ -2,7 +2,7 @@ from abstratos.memoriaAbstrata import MemoriaAbstrata
 import math
 class MemoriaFisicaModel(MemoriaAbstrata):
     def __init__(self, tam_memoria_bytes):
-        super().__init__(tam_memoria_bytes=tam_memoria_bytes)
+        super().__init__()
         self.tam_memoria_bytes = tam_memoria_bytes
         self.memoria = []
         self.fila_de_quadros = []
