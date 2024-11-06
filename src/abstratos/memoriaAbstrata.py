@@ -14,7 +14,7 @@ class MemoriaAbstrata(ABC):
         self.memoria = []
         
     def busca_pagina(self, pagina):
-        if(pagina > self.numero_paginas or pagina < 0):
+        if(pagina > len(self.memoria) or pagina < 0):
             raise Exception("Numero de paginas invalido.")
         possicao_memoria_sendo_acessado = pagina-1
         try:

@@ -12,7 +12,7 @@ class gerenciadorMemoriaModel():
         self.memoria_fisica = memoria_fisica
         self.numero_page_fault = 0
         self.tabela_de_referencia = [{"pagina_logica":-1, "quadro_fisico": -1}]
-        memoria_fisica.set_numero_quadros(memoria_virtual.get_numero_paginas())
+        memoria_fisica.set_numero_quadros(memoria_virtual.get_numero_paginas()) # o numero de paginas é dividido pelo numero total da memoria e assim é definido o num de quadros total 
     
     def acessa_paginas(self, posicao_pagina):
         if(posicao_pagina < 1):

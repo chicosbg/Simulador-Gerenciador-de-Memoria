@@ -6,7 +6,7 @@ class MemoriaFisicaModel(MemoriaAbstrata):
         self.tam_memoria_bytes = tam_memoria_bytes
         self.memoria = []
         self.fila_de_quadros = []
-        self.tam_quadros = 0
+        self.tam_max_quadros = 0
         
     def adiciona_na_memoria_fisica(self, pagina_memoria_logica):
         #verifica se a memoria não está cheia, então adiciona na memoria e add na fila
@@ -24,8 +24,9 @@ class MemoriaFisicaModel(MemoriaAbstrata):
     
     def set_numero_quadros(self, tam_paginas):
         self.tam_max_quadros = math.floor(self.tam_memoria_bytes/tam_paginas)
+        
     def get_numero_quadros(self):
-        return self.tam_quadros
+        return self.tam_max_quadros
     
     def memoria_nao_esta_cheia(self):
         return len(self.memoria) < self.tam_max_quadros
