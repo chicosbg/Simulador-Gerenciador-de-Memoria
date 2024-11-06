@@ -5,13 +5,14 @@ from models.memoriaVirtualModel import MemoriaVirtualModel
     tabela de paginação vai ser um vetor onde cada item é uma pagina que contem uma pagina do processo
     
 """
-# TODO: verificar quantos quadros a memoria fisica terá
+
 class gerenciadorMemoriaModel(): 
     def __init__(self, memoria_virtual: MemoriaVirtualModel  = None, memoria_fisica: MemoriaFisicaModel = None):
         self.memoria_virtual = memoria_virtual
         self.memoria_fisica = memoria_fisica
         self.numero_page_fault = 0
         self.tabela_de_referencia = [{"pagina_logica":-1, "quadro_fisico": -1}]
+        memoria_fisica.set_numero_quadros(memoria_virtual.get_numero_paginas())
     
     def acessa_paginas(self, posicao_pagina):
         if(posicao_pagina < 1):

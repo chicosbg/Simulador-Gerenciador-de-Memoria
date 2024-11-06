@@ -9,4 +9,6 @@ class MemoriaVirtualModel(MemoriaAbstrata):
         self.memoria = []
     
     def adiciona_lista_de_paginas(self, lista_paginas):
-        self.memoria = lista_paginas    
+        self.memoria = lista_paginas 
+    def get_numero_paginas(self):
+        return self.numero_paginas
