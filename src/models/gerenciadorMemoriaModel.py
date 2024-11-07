@@ -15,6 +15,8 @@ class gerenciadorMemoriaModel():
         memoria_fisica.set_numero_quadros(memoria_virtual.get_numero_paginas()) # o numero de paginas é dividido pelo numero total da memoria e assim é definido o num de quadros total 
     
     def acessa_paginas(self, posicao_pagina):
+        print(f"Tentando acessar a página {posicao_pagina}")
+
         if(posicao_pagina < 1):
             raise Exception("Numero da pagina invalido.")
 
@@ -41,12 +43,14 @@ class gerenciadorMemoriaModel():
             if(self.numero_page_fault == 0):
                 self.tabela_de_referencia.pop(0)
             self.numero_page_fault += 1
-            print(f"Ocorreu um page fault com o a posicação virtual {posicao_pagina}")
+            print(f"Ocorreu um page fault com a paǵina {posicao_pagina}")
             self._trata_page_fault(pagina_memoria_logica=pagina_memoria_logica["pagina"], posicao_memoria_logica=pagina_memoria_logica["index"]+1, posicao_da_referencia=posicao_referencia_ml_mf)
             return
-        
+        else:
+            print("Page hit!")
         
     def _trata_page_fault(self, pagina_memoria_logica, posicao_memoria_logica, posicao_da_referencia):
+        print("Trazendo página para memória física...")
         posicao_inserida = self.memoria_fisica.adiciona_na_memoria_fisica(pagina_memoria_logica)
         if(posicao_da_referencia == -1):
             self.tabela_de_referencia.append({"pagina_logica": posicao_memoria_logica, "pagina_fisica":posicao_inserida})
