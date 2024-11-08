@@ -1,6 +1,7 @@
 from models.memoriaFisicaModel import MemoriaFisicaModel
 from models.memoriaVirtualModel import MemoriaVirtualModel
 from utils.loggerUtils import LoggerUtils
+
 """
     tabela de paginação vai ser um vetor onde cada item é uma pagina que contem uma pagina do processo
     
@@ -12,13 +13,13 @@ class gerenciadorMemoriaModel():
         self.memoria_fisica = memoria_fisica
         self.numero_page_fault = 0
         self.tabela_de_referencia = [{"pagina_logica":-1, "quadro_fisico": -1}]
-        memoria_fisica.set_numero_quadros(memoria_virtual.get_numero_paginas()) # o numero de paginas é dividido pelo numero total da memoria e assim é definido o num de quadros total 
+        #memoria_fisica.set_numero_quadros(memoria_virtual.get_numero_paginas()) # o numero de paginas é dividido pelo numero total da memoria e assim é definido o num de quadros total 
         self.log = LoggerUtils()
     
     def acessa_paginas(self, posicao_pagina):
         self.log.info(f"Tentando acessar a página {posicao_pagina}")
 
-        if(posicao_pagina < 1):
+        if(posicao_pagina < 1 or posicao_pagina > self.memoria_virtual.numero_paginas):
             self.log.error("Numero da pagina invalido.")
             return
 
