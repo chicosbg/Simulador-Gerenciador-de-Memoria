@@ -64,3 +64,6 @@ class gerenciadorMemoriaModel():
             if(referencia["pagina_logica"] == pagina_logica):
                 return index
         return -1
+
+    def get_numero_page_fault(self):
+        return self.numero_page_fault

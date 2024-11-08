@@ -28,6 +28,7 @@ while (True):
     
     log.info(f"Endereço gerado: {endereco_binario}")
     log.info(f"Página: {pagina}, Deslocamento: {deslocamento}")    
+    log.info(f"Total de page fault {arq.get_numero_page_fault()}")    
     
     arq.acessa_paginas(posicao_pagina=pagina)
 
