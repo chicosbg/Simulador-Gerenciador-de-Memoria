@@ -3,10 +3,10 @@ import math
 class MemoriaFisicaModel(MemoriaAbstrata):
     def __init__(self, tam_max_quadros):
         super().__init__()
-        self.memoria = []
+        # self.memoria = []
         self.fila_de_quadros = []
         self.tam_max_quadros = int(tam_max_quadros)
-        self.tam_memoria_bytes = self.tam_max_quadros*4
+        # self.tam_memoria_bytes = self.tam_max_quadros*4
         self.nome_memoria = "Memoria Fisica"
         self.numero_padrao_colunas = self.tam_max_quadros
         
