@@ -22,7 +22,7 @@ pip install -r ./requirements.txt
 Após isso clone o repositório do projeto com o comando:
 $
 ```
-git clone https://github.com/Y4ngfr/Escalonador.git
+git clone https://github.com/chicosbg/Simulador-Gerenciador-de-Memoria.git
 ```
 
 Após clonar o repositório, acesse a pasta do projeto e execute o arquivo main.py:
