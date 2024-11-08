@@ -1,9 +1,15 @@
 from models.gerenciadorMemoriaModel import gerenciadorMemoriaModel
 from models.memoriaFisicaModel import MemoriaFisicaModel
 from models.memoriaVirtualModel import MemoriaVirtualModel
-import random
 from utils.loggerUtils import LoggerUtils
+import random
+import signal
+import os
 # Tamanho de quadro/página: 4 bytes ou 32 bits
+
+def handle_sigint(signum, frame):
+        print("\nEncerrando sistema...")
+        exit(0)
 
 log = LoggerUtils()
 
@@ -14,10 +20,10 @@ memoria_virtual = MemoriaVirtualModel(numero_de_paginas=6)
 memoria_virtual.adiciona_lista_de_paginas([["t","e","f","a"], ["e","f","g","a"], ["t","k","l","a"], ["t","k","l","a"], ["v","v","l","v"], ["t","t","s","r"]])
 arq = gerenciadorMemoriaModel(memoria_fisica=memoria_fisica, memoria_virtual=memoria_virtual)
 
-memoria_virtual.printa_memoria()
+# memoria_virtual.printa_memoria()
+# memoria_fisica.printa_memoria()
 
-memoria_fisica.printa_memoria()
-
+signal.signal(signal.SIGINT, handle_sigint)
 
 while (True):
     print("-"*20)
@@ -36,3 +42,4 @@ while (True):
     memoria_fisica.printa_memoria()
     
     input()
+    os.system('clear')
