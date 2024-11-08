@@ -12,7 +12,6 @@ class MemoriaAbstrata(ABC):
     def __init__(self):
         super().__init__()
         self.memoria = []
-        self.logger = LoggerUtils()
         self.numero_padrao_colunas = 0
         self.nome_memoria = ""
         self.logger = LoggerUtils()
