@@ -10,13 +10,25 @@ Existem dois tipos de abstração de memória no contexto do gerenciamento de me
 
 Dividindo-se a memória física e virtual em paginas/molduras e utilizando as técnicas de gerenciamento é possível executar programas que tenham espaço necessário maiores que memória física.
 
-# Pré-requisitos
+# Pré-requisitos e instalação
 
 Sistema é denvolvido na linguagem __python__, que pode ser feito o download [teste](https://www.python.org/downloads/)
 
 Esse sistema depende da dependencia Rich, então é obrigatorio o pacote estar instalado:
 ```Bash
 pip install -r ./requirements.txt
+```
+
+Após isso clone o repositório do projeto com o comando:
+$
+```
+git clone https://github.com/Y4ngfr/Escalonador.git
+```
+
+Após clonar o repositório, acesse a pasta do projeto e execute o arquivo main.py:
+$
+```
+python3 src/main.py
 ```
 
 # Funcionamento do Simulador
@@ -37,11 +49,22 @@ A arquitetura do simulador é composta pelos seguintes componentes: Memória Vir
 
 Cada página/moldura tem tamanho de 4 bytes
 
+# Memória Abstrata
+
+Define os atributos essenciais para o funcionamento do sistema como o atributo memoria que é abstraído como uma matriz de caracteres (bytes). Além disso define atributos acessórios para auxiliar na impressão do programa no terminal.
+
+Também define métodos gerais que serão utilizados pelas classes derivadas: **MemoriaFisicaModel** e **MemoriaVirtualModel**.
+
 # Memória Virtual
+
+A memória virtual é implementada através da classe **MemoriaVirtualModel** e basicamente define um número de páginas para a memória virtual e um método para inicializar a essa memória.
 
 # Memória Física
 
+A memória física é implementada através da classe **MemoriaFisicaModel** definindo uma quantidade de molduras, chamadas de quadros e uma fila de molduras, necessária para o algoritmo da política de substituição (FIFO). Além disso um método para adicionar uma página da memória virtual na memória física.
+
 # Gerenciador de Memória
+
 
 
 ### Diagrama de classe
