@@ -2,32 +2,32 @@
 
 O **Simulador-Gerenciador-de-Memoria** é um simulador de gerenciamento de memória com paginação de um sistema operacional. O gerenciamento de memória é o processo pelo qual o sistema operacional controla e organiza o uso da memória de um computador, assegurando que os programas em execução tenham acesso eficiente aos recursos de memória.
 
-Existem dois tipos de abstração de memória no contexto do gerenciamento de memória em um sistema operaiconal:
+Existem dois tipos de abstração de memória no contexto do gerenciamento de memória em um sistema operacional:
 
-- **Memória Física**: A memória física refere-se ao hardware real usado para armazenar os dados dos programas em um computador, ou seja é a própria memória RAM em si.
+- **Memória Física**: A memória física refere-se ao hardware real usado para armazenar os dados dos programas em um computador, ou seja, é a própria memória RAM em si.
 
 - **Memória Virtual**: A memória virtual é uma abstração para todo o espaço de endereçamento de um programa.
 
-Dividindo-se a memória física e virtual em paginas/molduras e utilizando as técnicas de gerenciamento é possível executar programas que tenham espaço necessário maiores que memória física.
+Dividindo-se a memória física e virtual em paginas/molduras e utilizando as técnicas de gerenciamento, é possível executar programas que necessitem de mais espaço do que a memória física disponível.
 
 # Pré-requisitos e instalação
 
-Sistema é denvolvido na linguagem __python__, que pode ser feito o download [teste](https://www.python.org/downloads/)
+O sistema é desenvolvido na linguagem __python__, que pode ser feito o download [teste](https://www.python.org/downloads/)
 
-Esse sistema depende da dependencia Rich, então é obrigatorio o pacote estar instalado:
+Primeiramente deve ser clonado o repositório do projeto com o comando:
+
+```$
+git clone https://github.com/chicosbg/Simulador-Gerenciador-de-Memoria.git
+```
+
+Com repositório clonado instale as dependências (é obrigatório o pacote estar instalado):
 ```Bash
 pip install -r ./requirements.txt
 ```
 
-Após isso clone o repositório do projeto com o comando:
-$
-```
-git clone https://github.com/chicosbg/Simulador-Gerenciador-de-Memoria.git
-```
+Acesse a pasta do projeto e execute o arquivo main.py:
 
-Após clonar o repositório, acesse a pasta do projeto e execute o arquivo main.py:
-$
-```
+```$
 python3 src/main.py
 ```
 
@@ -41,7 +41,7 @@ A cada passo na simulação o programa realiza as seguintes operações:
 + Tenta acessar o endereço gerado na memória física
 + Imprime o conteúdo das memórias virtual e física
 
-No inicio do programa deve-se especificar o tamanho da memória física e virtual em número de páginas.
+No início do programa deve-se especificar o tamanho da memória física e virtual em número de páginas.
 
 # Arquitetura do Sistema
 
@@ -65,7 +65,7 @@ A memória física é implementada através da classe **MemoriaFisicaModel** def
 
 # Gerenciador de Memória
 
-
+O Gerenciador de Memória é implementado através da classe **GerenciadorMemoriaModel**, responsável pela manipulação das memórias física e virtual, realizando o acesso e verificando a ocorrência de page faults.
 
 ### Diagrama de classe
 ![Diagrama de classe](./docs/diagrama_de_classe.png)
