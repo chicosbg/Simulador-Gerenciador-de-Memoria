@@ -6,7 +6,7 @@ class MemoriaVirtualModel(MemoriaAbstrata):
         super().__init__()
         # quantidades_de_paginas = math.log(tam_memoria_bytes, 2)
         self.numero_paginas = numero_de_paginas
-        self.memoria = []
+        # self.memoria = []
         self.nome_memoria = "Memoria Virutal"
         self.numero_padrao_colunas = self.numero_paginas
     
