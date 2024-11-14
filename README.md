@@ -12,7 +12,7 @@ Dividindo-se a memória física e virtual em paginas/molduras e utilizando as t�
 
 # Pré-requisitos e instalação
 
-O sistema é desenvolvido na linguagem __python__, que pode ser feito o download [teste](https://www.python.org/downloads/)
+O sistema é desenvolvido na linguagem __python__, que pode ser feito o download [aqui](https://www.python.org/downloads/)
 
 Primeiramente deve ser clonado o repositório do projeto com o comando:
 
